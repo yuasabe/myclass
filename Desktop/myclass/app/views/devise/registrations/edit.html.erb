@@ -1,0 +1,73 @@
+<h1>プロフィール設定</h1>
+
+<h2>Profile Settings</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <form class="form-horizontal" role="form">
+        
+        <div class="form-group">
+          <%= f.label :email, :class=>"col-sm-2 control-label" %>
+          <div class="col-sm-10">
+          <%= f.email_field :email, autofocus: true, :class=>"form-control" %>
+          </div>
+        </div>
+
+        <br><br>
+
+        <div class="form-group">
+          <%= f.label :password, :class=>"col-sm-2 control-label" %>
+          <div class="col-sm-10">
+          <%= f.password_field :password, autocomplete: "off", :class=>"form-control", placeholder:"(leave blank if you don't want to change it)" %>
+          <i></i>
+          </div>
+        </div>
+
+        <br><br>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation, :class=>"col-sm-2 control-label" %>
+          <div class="col-sm-10">
+          <%= f.password_field :password_confirmation, autocomplete: "off", :class=>"form-control", placeholder:"(leave blank if you don't want to change it)" %>
+          <i></i>
+          </div>
+        </div>
+
+        <br><br>
+
+        <div class="form-group">
+          <%= f.label :current_password, :class=>"col-sm-2 control-label" %>
+          <div class="col-sm-10">
+          <%= f.password_field :current_password, autocomplete: "off", :class=>"form-control", placeholder:"(we need your current password to confirm your changes)" %>
+          <i></i>
+          </div>
+        </div>
+
+        <br><br><br>
+        
+        <div class="col-md-6 col-md-offset-3">
+          <%= f.submit "Update", :class=>'btn btn-success btn-lg btn-block' %><br><br>
+          
+        </div>
+
+      </form>
+    </div>
+  </div>
+  
+  
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+<% end %>
+
+<br><br><br><br><br><br><br><br><br>
+
+<h3>アカウントを削除</h3>
+
+<p>全てのデータが削除されます。 <%= button_to "アカウントを削除", registration_path(resource_name), data: { confirm: "アカウントを本当に削除してよろしいですか？" }, method: :delete, :class=>'btn btn-danger btn-lg btn-block' %></p>
+
+<%= link_to "Back", :back %>

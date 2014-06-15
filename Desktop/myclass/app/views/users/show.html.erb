@@ -1,0 +1,34 @@
+<h1 style="text-align:left; margin-bottom:10px;"><%= gravatar_for(@user) %><br><%= @user.name %></h1>
+<p style="margin-top:0;">
+	<%= @user.school %> <%= grade(@user.grade_id) %>
+</p>
+<div class="page-header" style="margin-top:10px;"></div>
+
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				参加しているコミュニティ
+				(<%= @user.participations.count %>コミュニティ)
+			</div>
+			<div class="panel-body">
+				
+
+					<% if @user.participations.any? %>
+						
+						<% @user.communities.each do |comm| %>
+						
+							<%=  link_to comm.name, comm %>
+							<br>
+							<br>
+						<% end %>
+						<br>
+					<% else %>
+						コミュニティには参加していません。
+					<% end %>
+				
+			</div>
+		</div>
+	</div> <!-- col-md-6 -->
+</div>

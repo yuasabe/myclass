@@ -1,0 +1,30 @@
+<h1>Make New Community!</h1>
+
+<%= form_for @community do |f| %>
+
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+
+		<form class="form-horizontal" role="form">
+			<div class="form-group">
+		    <%= f.label :name, :class=>'col-sm-2 control-label' %>
+		    <div class="col-sm-10">
+		      <%= f.text_field :name, autofocus: true, placeholder: 'Name', :class=>'form-control' %>
+		    </div>
+		  </div>
+
+		  <br><br><br>
+
+			<div class="col-md-6 col-md-offset-3">
+				<%= f.submit "Sign up", :class=>'btn btn-primary' %><br><br>
+				<%= render "devise/shared/links" %>
+			</div>
+		</form>	
+	</div>
+</div>
+
+
+
+
+<% end %>

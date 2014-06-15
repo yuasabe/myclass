@@ -1,0 +1,126 @@
+<% if user_signed_in? %>
+	<div class="row">
+		<div class="col-md-6">
+			<h1 style="text-align:left; margin-bottom:5px;">Welcome <%= @user.name %>!</h1>
+			<h2 style="text-align:left; margin-top:5px;">The AWESOME Community Site for Students</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-1">
+			<%= gravatar_for @user %>
+		</div>
+		<div class="col-md-5">
+			<a href="<%= user_path(@user.id) %>">
+			<h3><%= @user.name %></h3>
+			<p><%= @user.school %> <%= grade(@user.grade_id) %></p>
+			</a>
+		</div>
+	</div>
+	<br><br>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Communities
+				</div>
+				<div class="panel-body">
+					<% if user_signed_in? %>
+
+						<% if current_user.participations.any? %>
+							
+							<% current_user.communities.each do |comm| %>
+							
+								<%=  link_to comm.name, comm %>
+								<br>
+								<br>
+							<% end %>
+							<br>
+						<% else %>
+							Please Browse and Join Communities!
+						<% end %>
+					<% else %>
+						Please Sign In to Join Communities
+					<% end %>
+				</div>
+			</div>
+		</div> <!-- col-md-6 -->
+
+		<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Make New Community
+				</div>
+				
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-12">
+
+						<%= render 'layouts/make_community_form' %>
+
+						</div> <!-- col-md-6 col-md-offset -->
+					</div><!-- row -->
+				</div> <!-- panel body -->
+			</div> <!-- panel -->
+		</div> <!-- col-md-6 -->
+
+	</div>
+<% else %>
+</div>
+	
+		<div class="row" style="width:100%;margin:0;">
+			<div class="col-md-12" style="padding:0;">
+				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="width:100%;">
+			<!-- Indicators -->
+					<ol class="carousel-indicators">
+					  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+					  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+					  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+					</ol>
+
+				  <!-- Wrapper for slides -->
+				  <div class="carousel-inner">
+				    <div class="item active">
+				      <%= image_tag "computers.png", :class=>"carousel-img" %>
+				    </div>
+				    <div class="item">
+				      <%= image_tag "computers.png", :class=>"carousel-img" %>
+				    </div>
+				    <div class="item">
+				      <%= image_tag "computers.png", :class=>"carousel-img" %>
+				    </div>
+				  </div>
+
+					<!-- Controls -->
+					<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+					  <span class="glyphicon glyphicon-chevron-left"></span>
+					</a>
+					<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+					  <span class="glyphicon glyphicon-chevron-right"></span>
+					</a>
+			</div>
+		</div>
+	</div>
+	<br><br>
+
+	<div class="row">
+		<div class="col-md-4 col-md-offset-1">
+			<%= link_to "SIGN UP!", new_user_registration_path, :class=>"btn btn-success btn-lg btn-block" %>
+		</div>
+		<div class="col-md-4 col-md-offset-2">
+			<%= link_to "SIGN UP!",  new_user_session_path, :class=>"btn btn-success btn-lg btn-block" %>
+		</div>
+	</div>
+	<div class="page-header"></div>
+
+	<div class="center">
+		<h1>TOMOTOMO</h1>
+		<h2>中高生のコミュニティサイト</h2>
+		<%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
+	</div>
+
+<% end %>
+
+
+
+  

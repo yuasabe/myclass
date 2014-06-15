@@ -1,0 +1,80 @@
+<h1>Sign up</h1>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= devise_error_messages! %>
+
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+			    <%= f.label :name, :class=>'col-sm-2 control-label' %>
+			    <div class="col-sm-10">
+			      <%= f.text_field :name, autofocus: true, placeholder: 'Name', :class=>'form-control' %>
+			    </div>
+			  </div>
+
+			  <br><br><br>
+
+			  <div class="form-group">
+			  	<%= f.label :email, :class=>'col-sm-2 control-label' %>
+			    <div class="col-sm-10">
+			      <%= f.email_field :email, autofocus: true, placeholder: 'E-mail', :class=>'form-control' %>
+			    </div>
+			  </div>
+
+			  <br><br><br>
+
+			  <div class="form-group">
+			    <%= f.label :password, :class=>'col-sm-2 control-label' %>
+			    <div class="col-sm-10">
+			      <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', :class=>'form-control' %>
+			    </div>
+			  </div>
+				
+				<br>
+
+
+			  <div class="form-group">
+			    <div class="col-sm-2"></div>
+			    <div class="col-sm-10">
+			      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Password Confirmation', :class=>'form-control' %>
+			    </div>
+			  </div>
+
+			  <br><br><br>
+
+			  <div class="form-group">
+			     <%= f.label :school, :class=>'col-sm-2 control-label' %>
+			    <div class="col-sm-10">
+			      <%= f.text_field :school, autofocus: true, placeholder: 'School', :class=>'form-control' %>
+			    </div>
+			  </div>
+
+			  <br><br><br>
+
+			  <div class="form-group">
+			     <label for="" class="col-sm-2 control-label">学年</label>
+			    <div class="col-sm-3">
+			  		<%= f.select(:grade_id, [['中学1年', 1],['中学2年', 2],['中学3年', 3],['高校1年', 4],['高校2年', 5],['高校3年', 6]], :class=>'form-control') %>
+			    </div>
+			  </div>
+
+			  <br><br><br>
+
+			</form>
+			
+			<br>
+
+
+			<div class="col-md-6 col-md-offset-3">
+				<%= f.submit "Sign up", :class=>'btn btn-primary' %><br><br>
+				<%= render "devise/shared/links" %>
+			</div>
+			
+		</div>
+	</div>
+
+<% end %>
+
+

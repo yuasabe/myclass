@@ -1,0 +1,47 @@
+<div class="row">
+	<div class="col-md-10">
+		<h1 style="text-align:left;margin-bottom:10px;"><%= @community.name %></h1>
+				<%= User.find(@community.creator_id).name%>
+	</div>
+	<div class="col-md-2" style="margin-top:30px">
+		<h2 style="text-align:right;margin-bottom:0">Community</h2>
+	</div>
+</div>
+
+
+<p><%= @community.desc %></p>
+
+<div class="page-header" style="margin-top:10px;">
+</div>
+
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-heading">Threads</div>
+			<div class="panel-body">
+				
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Users
+			</div>
+			<div class="panel-body">
+			<%#= @community.user. %>
+
+				<% @community.users.each do |f| %>
+					<li style="list-style-type:none">
+					<%= gravatar_for f %>
+					<%= f.name %>
+					</li>
+					<br><br><br><br>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+

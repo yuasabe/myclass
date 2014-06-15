@@ -1,0 +1,48 @@
+<h1>Communities</h1>
+
+<h2>全コミュニティの一覧です。</h2>
+<br>
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<%= form_tag communities_path, :method => 'get' do %>
+			<p>
+				<%= text_field_tag :search, nil, placeholder: '趣味や興味でコミュニティを探してみよう！' %>
+				<%= submit_tag "コミュニティを探す！", :name => nil, :class => "btn btn-info btn-lg btn-block" %>
+			</p>
+		<% end %>
+	</div>
+</div>
+
+<br><br><br>
+
+
+<ul>
+	<% if @communities.any? %>
+		<%= render @communities %>
+	<% else %>
+		ただいま活動中のコミュニティはありません。<br>
+		ぜひ、新しいのを作っていてください！
+
+		<br><br>
+
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<h1>New Community!</h1>
+				<h2>新しいコミュニティを作ろう！</h2>
+					<div class="panel panel-default">				
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-12">
+
+								<%= render 'layouts/make_community_form'%>
+
+								</div> <!-- col-md-6 col-md-offset -->
+							</div><!-- row -->
+						</div> <!-- panel body -->
+					</div> <!-- panel -->
+			</div> <!-- col-md-6 -->
+		</div>
+	<% end %>
+</ul>
+<br><br>

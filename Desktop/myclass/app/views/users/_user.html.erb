@@ -1,0 +1,15 @@
+<li style="list-style-type:none">
+	<div class="row">
+		<div class="col-md-1">
+			<%= gravatar_for(user) %>
+		</div>
+		<div class="col-md-3">
+			<a href="<%= user_path(user.id) %>"><%= user.name %></a><br>
+			<%= user.school %><br>
+			<%= grade(user.grade_id) %>
+			
+		</div>
+	</div>
+	
+</li>
+<br><br>

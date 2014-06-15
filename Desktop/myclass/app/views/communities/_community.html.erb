@@ -1,0 +1,44 @@
+<li style="list-style-type:none">
+	
+
+<div class="row">
+	
+	<a href="<%= community_path(community.id) %>">
+		<div class="col-md-2">
+			<%= community.name %><br>
+			<% @user = User.find(community.creator_id)  %><br>
+		</div>
+
+		<div class="col-md-4">
+			<%= community.desc %>
+			
+			<br><br>
+		</div>
+	</a>
+	<div class="col-md-1 col-md-offset-2">
+		<% if community.users.include?(current_user) %>
+			<%= button_to "Leave", { action: "leave", id: community.id }, class: "btn btn-danger" %>
+		<% else %>
+			<%= button_to "Join!", { action: "join", id: community.id }, class: "btn btn-success" %>
+		<% end %>
+	</div>
+
+	<div class="col-md-3">
+		<div class="row">
+			<div class="col-md-6">
+				クリエーター：	<br>
+				<%= @user.name %>
+			</div>
+			<div class="col-md-6">
+				<%= gravatar_for(@user) %>
+			</div>
+		</div>
+	</div> <!-- col md-3 -->
+</div>
+
+
+
+
+	
+</li>
+<div class="page-header" style="margin-top:10px;"></div>

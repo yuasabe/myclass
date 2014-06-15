@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: communities
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  desc       :text
+#  user_id    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#  creator_id :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  desc: MyText
+  user_ids: 1
+
+two:
+  name: MyString
+  desc: MyText
+  user_ids: 1
